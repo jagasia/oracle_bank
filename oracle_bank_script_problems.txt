@@ -1,0 +1,839 @@
+--------------------------------------------------------
+--  File created - Saturday-March-06-2021   
+--------------------------------------------------------
+--------------------------------------------------------
+--  DDL for Table ACCOUNT
+--------------------------------------------------------
+
+  CREATE TABLE "ACCOUNT" 
+   (	"ACNUMBER" VARCHAR2(6 BYTE), 
+	"CUSTID" VARCHAR2(6 BYTE), 
+	"BID" VARCHAR2(6 BYTE), 
+	"OPENING_BALANCE" NUMBER(*,0), 
+	"AOD" DATE, 
+	"ATYPE" VARCHAR2(10 BYTE), 
+	"ASTATUS" VARCHAR2(10 BYTE)
+   ) PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+   ;
+--------------------------------------------------------
+--  DDL for Table CUSTOMER
+--------------------------------------------------------
+
+  CREATE TABLE "CUSTOMER" 
+   (	"CUSTID" VARCHAR2(6 BYTE), 
+	"FNAME" VARCHAR2(30 BYTE), 
+	"MNAME" VARCHAR2(30 BYTE), 
+	"LTNAME" VARCHAR2(30 BYTE), 
+	"CITY" VARCHAR2(15 BYTE), 
+	"MOBILENO" VARCHAR2(10 BYTE), 
+	"OCCUPATION" VARCHAR2(10 BYTE), 
+	"DOB" DATE
+   ) PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+   ;
+--------------------------------------------------------
+--  DDL for Table TRANDETAILS
+--------------------------------------------------------
+
+  CREATE TABLE "TRANDETAILS" 
+   (	"TNUMBER" VARCHAR2(6 BYTE), 
+	"ACNUMBER" VARCHAR2(6 BYTE), 
+	"DOT" DATE, 
+	"MEDIUM_OF_TRANSACTION" VARCHAR2(20 BYTE), 
+	"TRANSACTION_TYPE" VARCHAR2(20 BYTE), 
+	"TRANSACTION_AMOUNT" NUMBER(*,0)
+   ) PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+   ;
+--------------------------------------------------------
+--  DDL for Table LOAN
+--------------------------------------------------------
+
+  CREATE TABLE "LOAN" 
+   (	"CUSTID" VARCHAR2(6 BYTE), 
+	"BID" VARCHAR2(6 BYTE), 
+	"LOAN_AMOUNT" NUMBER(*,0)
+   ) PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+   ;
+--------------------------------------------------------
+--  DDL for Table BRANCH
+--------------------------------------------------------
+
+  CREATE TABLE "BRANCH" 
+   (	"BID" VARCHAR2(6 BYTE), 
+	"BNAME" VARCHAR2(30 BYTE), 
+	"BCITY" VARCHAR2(30 BYTE)
+   ) PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+   ;
+REM INSERTING into ACCOUNT
+SET DEFINE OFF;
+Insert into ACCOUNT (ACNUMBER,CUSTID,BID,OPENING_BALANCE,AOD,ATYPE,ASTATUS) values ('A00001','C00001','B00001',1000,to_date('15-12-12','DD-MM-RR'),'Saving','Active');
+Insert into ACCOUNT (ACNUMBER,CUSTID,BID,OPENING_BALANCE,AOD,ATYPE,ASTATUS) values ('A00002','C00002','B00001',1000,to_date('12-06-12','DD-MM-RR'),'Saving','Active');
+Insert into ACCOUNT (ACNUMBER,CUSTID,BID,OPENING_BALANCE,AOD,ATYPE,ASTATUS) values ('A00003','C00003','B00002',1000,to_date('17-05-12','DD-MM-RR'),'Saving','Active');
+Insert into ACCOUNT (ACNUMBER,CUSTID,BID,OPENING_BALANCE,AOD,ATYPE,ASTATUS) values ('A00004','C00002','B00005',1000,to_date('27-01-13','DD-MM-RR'),'Saving','Active');
+Insert into ACCOUNT (ACNUMBER,CUSTID,BID,OPENING_BALANCE,AOD,ATYPE,ASTATUS) values ('A00005','C00006','B00006',1000,to_date('17-12-12','DD-MM-RR'),'Saving','Active');
+Insert into ACCOUNT (ACNUMBER,CUSTID,BID,OPENING_BALANCE,AOD,ATYPE,ASTATUS) values ('A00006','C00007','B00007',1000,to_date('12-08-10','DD-MM-RR'),'Saving','Suspended');
+Insert into ACCOUNT (ACNUMBER,CUSTID,BID,OPENING_BALANCE,AOD,ATYPE,ASTATUS) values ('A00007','C00007','B00001',1000,to_date('02-10-12','DD-MM-RR'),'Saving','Active');
+Insert into ACCOUNT (ACNUMBER,CUSTID,BID,OPENING_BALANCE,AOD,ATYPE,ASTATUS) values ('A00008','C00001','B00003',1000,to_date('09-11-09','DD-MM-RR'),'Saving','Terminated');
+Insert into ACCOUNT (ACNUMBER,CUSTID,BID,OPENING_BALANCE,AOD,ATYPE,ASTATUS) values ('A00009','C00003','B00007',1000,to_date('30-11-08','DD-MM-RR'),'Saving','Terminated');
+Insert into ACCOUNT (ACNUMBER,CUSTID,BID,OPENING_BALANCE,AOD,ATYPE,ASTATUS) values ('A00010','C00004','B00002',1000,to_date('01-03-13','DD-MM-RR'),'Saving','Active');
+REM INSERTING into CUSTOMER
+SET DEFINE OFF;
+Insert into CUSTOMER (CUSTID,FNAME,MNAME,LTNAME,CITY,MOBILENO,OCCUPATION,DOB) values ('C00001','Ramesh','Chandra','Sharma','Delhi','9543198345','Service',to_date('06-12-76','DD-MM-RR'));
+Insert into CUSTOMER (CUSTID,FNAME,MNAME,LTNAME,CITY,MOBILENO,OCCUPATION,DOB) values ('C00002','Avinash','Sunder','Minha','Delhi','9876532109','Service',to_date('16-10-74','DD-MM-RR'));
+Insert into CUSTOMER (CUSTID,FNAME,MNAME,LTNAME,CITY,MOBILENO,OCCUPATION,DOB) values ('C00003','Rahul',null,'Rastogi','Delhi','9765178901','Student',to_date('26-09-81','DD-MM-RR'));
+Insert into CUSTOMER (CUSTID,FNAME,MNAME,LTNAME,CITY,MOBILENO,OCCUPATION,DOB) values ('C00004','Parul',null,'Gandhi','Delhi','9876532109','Housewife',to_date('03-11-76','DD-MM-RR'));
+Insert into CUSTOMER (CUSTID,FNAME,MNAME,LTNAME,CITY,MOBILENO,OCCUPATION,DOB) values ('C00005','Naveen','Chandra','Aedekar','Mumbai','8976523190','Service',to_date('19-09-76','DD-MM-RR'));
+Insert into CUSTOMER (CUSTID,FNAME,MNAME,LTNAME,CITY,MOBILENO,OCCUPATION,DOB) values ('C00006','Chitresh',null,'Barwe','Mumbai','7651298321','Student',to_date('06-11-92','DD-MM-RR'));
+Insert into CUSTOMER (CUSTID,FNAME,MNAME,LTNAME,CITY,MOBILENO,OCCUPATION,DOB) values ('C00007','Amit','Kumar','Borkar','Mumbai','9875189761','Student',to_date('06-09-81','DD-MM-RR'));
+Insert into CUSTOMER (CUSTID,FNAME,MNAME,LTNAME,CITY,MOBILENO,OCCUPATION,DOB) values ('C00008','Nisha',null,'Damle','Mumbai','7954198761','Service',to_date('03-12-75','DD-MM-RR'));
+Insert into CUSTOMER (CUSTID,FNAME,MNAME,LTNAME,CITY,MOBILENO,OCCUPATION,DOB) values ('C00009','Abhishek',null,'Dutta','Kolkata','9856198761','Service',to_date('22-05-73','DD-MM-RR'));
+Insert into CUSTOMER (CUSTID,FNAME,MNAME,LTNAME,CITY,MOBILENO,OCCUPATION,DOB) values ('C00010','Shankar',null,'Nair','Chennai','8765489076','Service',to_date('12-07-76','DD-MM-RR'));
+REM INSERTING into TRANDETAILS
+SET DEFINE OFF;
+Insert into TRANDETAILS (TNUMBER,ACNUMBER,DOT,MEDIUM_OF_TRANSACTION,TRANSACTION_TYPE,TRANSACTION_AMOUNT) values ('T00001','A00001',to_date('01-01-13','DD-MM-RR'),'Cheque','Deposit',2000);
+Insert into TRANDETAILS (TNUMBER,ACNUMBER,DOT,MEDIUM_OF_TRANSACTION,TRANSACTION_TYPE,TRANSACTION_AMOUNT) values ('T00002','A00001',to_date('01-02-13','DD-MM-RR'),'Cash','Withdrawal',1000);
+Insert into TRANDETAILS (TNUMBER,ACNUMBER,DOT,MEDIUM_OF_TRANSACTION,TRANSACTION_TYPE,TRANSACTION_AMOUNT) values ('T00003','A00002',to_date('01-01-13','DD-MM-RR'),'Cash','Deposit',2000);
+Insert into TRANDETAILS (TNUMBER,ACNUMBER,DOT,MEDIUM_OF_TRANSACTION,TRANSACTION_TYPE,TRANSACTION_AMOUNT) values ('T00004','A00002',to_date('01-02-13','DD-MM-RR'),'Cash','Deposit',3000);
+Insert into TRANDETAILS (TNUMBER,ACNUMBER,DOT,MEDIUM_OF_TRANSACTION,TRANSACTION_TYPE,TRANSACTION_AMOUNT) values ('T00005','A00007',to_date('11-01-13','DD-MM-RR'),'Cash','Deposit',7000);
+Insert into TRANDETAILS (TNUMBER,ACNUMBER,DOT,MEDIUM_OF_TRANSACTION,TRANSACTION_TYPE,TRANSACTION_AMOUNT) values ('T00006','A00007',to_date('13-01-13','DD-MM-RR'),'Cash','Deposit',9000);
+Insert into TRANDETAILS (TNUMBER,ACNUMBER,DOT,MEDIUM_OF_TRANSACTION,TRANSACTION_TYPE,TRANSACTION_AMOUNT) values ('T00007','A00001',to_date('13-03-13','DD-MM-RR'),'Cash','Deposit',4000);
+Insert into TRANDETAILS (TNUMBER,ACNUMBER,DOT,MEDIUM_OF_TRANSACTION,TRANSACTION_TYPE,TRANSACTION_AMOUNT) values ('T00008','A00001',to_date('14-03-13','DD-MM-RR'),'Cheque','Deposit',3000);
+Insert into TRANDETAILS (TNUMBER,ACNUMBER,DOT,MEDIUM_OF_TRANSACTION,TRANSACTION_TYPE,TRANSACTION_AMOUNT) values ('T00009','A00001',to_date('21-03-13','DD-MM-RR'),'Cash','Withdrawal',9000);
+Insert into TRANDETAILS (TNUMBER,ACNUMBER,DOT,MEDIUM_OF_TRANSACTION,TRANSACTION_TYPE,TRANSACTION_AMOUNT) values ('T00010','A00001',to_date('22-03-13','DD-MM-RR'),'Cash','Withdrawal',2000);
+Insert into TRANDETAILS (TNUMBER,ACNUMBER,DOT,MEDIUM_OF_TRANSACTION,TRANSACTION_TYPE,TRANSACTION_AMOUNT) values ('T00011','A00002',to_date('25-03-13','DD-MM-RR'),'Cash','Withdrawal',7000);
+Insert into TRANDETAILS (TNUMBER,ACNUMBER,DOT,MEDIUM_OF_TRANSACTION,TRANSACTION_TYPE,TRANSACTION_AMOUNT) values ('T00012','A00007',to_date('26-03-13','DD-MM-RR'),'Cash','Withdrawal',2000);
+REM INSERTING into LOAN
+SET DEFINE OFF;
+Insert into LOAN (CUSTID,BID,LOAN_AMOUNT) values ('C00001','B00001',100000);
+Insert into LOAN (CUSTID,BID,LOAN_AMOUNT) values ('C00002','B00002',200000);
+Insert into LOAN (CUSTID,BID,LOAN_AMOUNT) values ('C00009','B00008',400000);
+Insert into LOAN (CUSTID,BID,LOAN_AMOUNT) values ('C00010','B00009',500000);
+Insert into LOAN (CUSTID,BID,LOAN_AMOUNT) values ('C00001','B00003',600000);
+Insert into LOAN (CUSTID,BID,LOAN_AMOUNT) values ('C00002','B00001',600000);
+REM INSERTING into BRANCH
+SET DEFINE OFF;
+Insert into BRANCH (BID,BNAME,BCITY) values ('B00009','Kodambakkam','Chennai');
+Insert into BRANCH (BID,BNAME,BCITY) values ('B00001','Asaf ali road','Delhi');
+Insert into BRANCH (BID,BNAME,BCITY) values ('B00002','New delhi main branch','Delhi');
+Insert into BRANCH (BID,BNAME,BCITY) values ('B00003','Delhi cantt','Delhi');
+Insert into BRANCH (BID,BNAME,BCITY) values ('B00004','Jasola','Delhi');
+Insert into BRANCH (BID,BNAME,BCITY) values ('B00005','Mahim','Mumbai');
+Insert into BRANCH (BID,BNAME,BCITY) values ('B00006','Vile parle','Mumbai');
+Insert into BRANCH (BID,BNAME,BCITY) values ('B00007','Mandvi','Mumbai');
+Insert into BRANCH (BID,BNAME,BCITY) values ('B00008','Jadavpur','Kolkata');
+Insert into BRANCH (BID,BNAME,BCITY) values ('B00010','MG Road','Bengaluru');
+Insert into BRANCH (BID,BNAME,BCITY) values ('B00011','OMR','Chennai');
+Insert into BRANCH (BID,BNAME,BCITY) values ('B00012','New Branch','Coimbatore');
+
+
+----------------------------------
+
+/*
+Problem #1:
+Write a query to display the customer number , firstname, customer’s date of birth . Display in a sorted order of date of birth year and within that sort by firstname.
+
+
+SELECT custid, fname, dob
+FROM customer
+ORDER BY year(DOB), fname;
+
++--------+----------+------------+
+| custid | fname    | dob        |
++--------+----------+------------+
+| C00009 | Abhishek | 1973-05-22 |
+| C00002 | Avinash  | 1974-10-16 |
+| C00008 | Nisha    | 1975-12-03 |
+| C00005 | Naveen   | 1976-09-19 |
+| C00004 | Parul    | 1976-11-03 |
+| C00001 | Ramesh   | 1976-12-06 |
+| C00010 | Shankar  | 1976-07-12 |
+| C00007 | Amit     | 1981-09-06 |
+| C00003 | Rahul    | 1981-09-26 |
+| C00006 | Chitresh | 1992-11-06 |
++--------+----------+------------+
+10 rows in set (0.01 sec)
+
+
+-----------------------------------------------------------------
+Problem #2:
+Write a query to display customer’s number, first name and middle name. The customer’s who don’t have middle name, for them display the last name. Give the alias name as Cust_Name.
+ 
+
+SELECT concat(fname, " ", ifnull(mname, ltname)) AS 'CUST_NAME'
+FROM customer;
+
+
++----------------+
+| CUST_NAME      |
++----------------+
+| Ramesh Chandra |
+| Avinash Sunder |
+| Rahul Rastogi  |
+| Parul Gandhi   |
+| Naveen Chandra |
+| Chitresh Barwe |
+| Amit Kumar     |
+| Nisha Damle    |
+| Abhishek Dutta |
+| Shankar Nair   |
++----------------+
+10 rows in set (0.01 sec)
+
+
+-----------------------------------------------------------------Problem#3:
+Write a query to display account number, customer’s number, customer’s firstname,lastname,account opening date.
+
+
+SELECT a.acnumber, a.custid, c.fname, c.ltname, a.aod
+FROM account a, customer c
+WHERE a.custid=c.custid;
+
+
+
++----------+--------+----------+---------+------------+
+| acnumber | custid | fname    | ltname  | aod        |
++----------+--------+----------+---------+------------+
+| A00001   | C00001 | Ramesh   | Sharma  | 2012-12-15 |
+| A00002   | C00002 | Avinash  | Minha   | 2012-06-12 |
+| A00003   | C00003 | Rahul    | Rastogi | 2012-05-17 |
+| A00004   | C00002 | Avinash  | Minha   | 2013-01-27 |
+| A00005   | C00006 | Chitresh | Barwe   | 2012-12-17 |
+| A00006   | C00007 | Amit     | Borkar  | 2010-08-12 |
+| A00007   | C00007 | Amit     | Borkar  | 2012-10-02 |
+| A00008   | C00001 | Ramesh   | Sharma  | 2009-11-09 |
+| A00009   | C00003 | Rahul    | Rastogi | 2008-11-30 |
+| A00010   | C00004 | Parul    | Gandhi  | 2013-03-01 |
++----------+--------+----------+---------+------------+
+10 rows in set (0.01 sec)
+
+
+
+
+
+
+-----------------------------------------------------------------
+Problem # 4:
+Write a query to display the number of customer’s from Delhi. Give the count an alias name of Cust_Count.
+
+
+
+SELECT count(custid) as 'CUST_COUNT'
+FROM customer
+WHERE city='DELHI';
+
++------------+
+| CUST_COUNT |
++------------+
+|          4 |
++------------+
+1 row in set (0.00 sec)
+
+
+
+-----------------------------------------------------------------Problem # 5:
+Write a query to display  the customer number, customer firstname,account number for the customer’s whose accounts were created after 15th of any month.
+
+
+SELECT c.custid, c.fname, a.acnumber
+FROM customer c, account a
+WHERE c.custid=a.custid AND day(a.aod)>15;
+
+
++--------+----------+----------+
+| custid | fname    | acnumber |
++--------+----------+----------+
+| C00002 | Avinash  | A00004   |
+| C00003 | Rahul    | A00003   |
+| C00003 | Rahul    | A00009   |
+| C00006 | Chitresh | A00005   |
++--------+----------+----------+
+4 rows in set (0.00 sec)
+
+-----------------------------------------------------------------Problem # 6:
+Write a query to display the customers firstname, city and account number who are not into business, service or studies.
+
+
+SELECT c.fname, c.city, a.acnumber
+FROM customer c, account a
+WHERE c.custid=a.custid AND occupation not in ('Business', 'service', 'student');
+
+
++----------+--------+----------+
+| fname    | city   | acnumber |
++----------+--------+----------+
+| Ramesh   | Delhi  | A00001   |
+| Ramesh   | Delhi  | A00008   |
+| Avinash  | Delhi  | A00002   |
+| Avinash  | Delhi  | A00004   |
+| Rahul    | Delhi  | A00003   |
+| Rahul    | Delhi  | A00009   |
+| Chitresh | Mumbai | A00005   |
+| Amit     | Mumbai | A00006   |
+| Amit     | Mumbai | A00007   |
++----------+--------+----------+
+9 rows in set (0.00 sec)
+
+
+
+-----------------------------------------------------------------Problem # 7:
+Write a query to display city name and count of branches in that city. Give the count of branches an alias name of Count_Branch.
+
+
+SELECT bcity, count(bid) as 'COUNT_BRANCH'
+FROM branch
+GROUP BY bcity;
+
+
++---------+--------------+
+| bcity   | COUNT_BRANCH |
++---------+--------------+
+| Chennai |            1 |
+| Delhi   |            4 |
+| Kolkata |            1 |
+| Mumbai  |            3 |
++---------+--------------+
+4 rows in set (0.00 sec)
+
+
+
+-----------------------------------------------------------------
+Problem # 8:
+Write a query to display account id, customer’s firstname, customer’s lastname for the customer’s whose account is Active.
+
+
+SELECT a.acnumber, c.fname, c.ltname
+FROM customer c, account a
+WHERE c.custid=a.custid AND a.astatus='active';
+
+
+
+
++----------+----------+---------+
+| acnumber | fname    | ltname  |
++----------+----------+---------+
+| A00001   | Ramesh   | Sharma  |
+| A00002   | Avinash  | Minha   |
+| A00004   | Avinash  | Minha   |
+| A00003   | Rahul    | Rastogi |
+| A00010   | Parul    | Gandhi  |
+| A00005   | Chitresh | Barwe   |
+| A00007   | Amit     | Borkar  |
++----------+----------+---------+
+7 rows in set (0.00 sec)
+
+
+-----------------------------------------------------------------Problem # 9:
+Write a query to display the customer’s number, customer’s firstname, branch id and loan amount for people who have taken loans.
+
+
+
+SELECT c.custid, c.fname, l.bid, l.loan_amount
+FROM customer c, loan l
+WHERE c.custid=l.custid;
+
+
+
++--------+----------+--------+-------------+
+| custid | fname    | bid    | loan_amount |
++--------+----------+--------+-------------+
+| C00001 | Ramesh   | B00001 |      100000 |
+| C00001 | Ramesh   | B00003 |      600000 |
+| C00002 | Avinash  | B00001 |      600000 |
+| C00002 | Avinash  | B00002 |      200000 |
+| C00009 | Abhishek | B00008 |      400000 |
+| C00010 | Shankar  | B00009 |      500000 |
++--------+----------+--------+-------------+
+6 rows in set (0.00 sec)
+
+
+
+
+
+-----------------------------------------------------------------Problem # 10:
+Write a query to display customer number, customer name, account number where the account status is terminated.
+
+
+SELECT c.custid, c.fname, a.acnumber
+FROM customer c, account a
+WHERE c.custid=a.custid AND a.astatus='Terminated';
+
+
+
+
++--------+--------+----------+
+| custid | fname  | acnumber |
++--------+--------+----------+
+| C00001 | Ramesh | A00008   |
+| C00003 | Rahul  | A00009   |
++--------+--------+----------+
+2 rows in set (0.00 sec)
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------
+-----------------------------------------------------------------
+Problem#1:
+Write a query to display  the total number of  withdrawals and total number of deposits being done by customer whose registration is C00001. Give the count an alias name of Trans_Count. 
+
+
+SELECT transaction_type, count(*) as 'Trans_Count'
+FROM trandetails
+WHERE transaction_type in ('Deposit', 'Withdrawal') AND acnumber in (SELECT acnumber FROM account where custid='c00001')
+GROUP BY transaction_type;
+
+
++------------------+-------------+
+| transaction_type | Trans_Count |
++------------------+-------------+
+| Deposit          |           3 |
+| Withdrawal       |           3 |
++------------------+-------------+
+2 rows in set (0.02 sec)
+
+
+
+
+
+
+
+-----------------------------------------------------------------Problem # 2:
+Write a query to display the customer’s number, customer’s firstname, customer’s city and branch city where the city of the customer and city of the branch is different. 
+
+
+SELECT c.custid, c.fname, c.city, b.bcity
+FROM customer c, branch b, account a
+WHERE c.custid=a.custid AND a.bid=b.bid AND c.city != b.bcity; 
+
+
+
+
++--------+---------+--------+--------+
+| custid | fname   | city   | bcity  |
++--------+---------+--------+--------+
+| C00007 | Amit    | Mumbai | Delhi  |
+| C00002 | Avinash | Delhi  | Mumbai |
+| C00003 | Rahul   | Delhi  | Mumbai |
++--------+---------+--------+--------+
+3 rows in set (0.00 sec)
+
+
+-----------------------------------------------------------------
+Problem # 3:
+Write a query to display the customer number, customer firstname, customer lastname who has taken loan from more then 1 bank.
+
+
+SELECT c.custid, c.fname, c.ltname
+FROM customer c
+WHERE c.custid in (SELECT custid FROM loan GROUP BY custid having count(bid)>1);
+
+
+
++--------+---------+--------+
+| custid | fname   | ltname |
++--------+---------+--------+
+| C00001 | Ramesh  | Sharma |
+| C00002 | Avinash | Minha  |
++--------+---------+--------+
+2 rows in set (0.00 sec)
+
+-----------------------------------------------------------------
+Problem # 4:
+Write a query to display the number of client who have asked for loans but they don’t have any account in the bank though they are registered customers. Give the count an alias name of Count.
+
+
+
+SELECT custid
+FROM customer
+WHERE custid NOT IN (SELECT custid from account) AND custid IN (SELECT custid FROM loan);
+
+
+SELECT count(custid) as 'COUNT'
+FROM customer
+WHERE custid NOT IN (SELECT custid from account) AND custid IN (SELECT custid FROM loan);
+
++-------+
+| COUNT |
++-------+
+|     2 |
++-------+
+1 row in set (0.00 sec)
+
+
+
+OR	
+
+
+SELECT count(custid) as 'COUNT'
+FROM loan
+WHERE custid NOT IN (SELECT custid from account);
+
+
++-------+
+| COUNT |
++-------+
+|     2 |
++-------+
+1 row in set (0.00 sec)
+
+-----------------------------------------------------------------
+Problem # 5:
+Write a query to display account id, and total amount deposited by each account holder ( Including the opening balance ). Give the total amount deposited an alias name of Deposit_Amount.
+
+	
+
+SELECT t.acnumber, a.opening_balance + sum(t.transaction_amount) as 'Deposit_Amount'
+FROM trandetails t, account a
+WHERE t.acnumber=a.acnumber AND t.transaction_type='deposit'
+GROUP BY t.acnumber;
+
+
+
++----------+----------------+
+| acnumber | Deposit_Amount |
++----------+----------------+
+| A00001   |          10000 |
+| A00002   |           6000 |
+| A00007   |          17000 |
++----------+----------------+
+3 rows in set (0.00 sec)
+
+
+
+-----------------------------------------------------------------
+Problem # 6:
+Write a query to the count the number of customers who have registration but no account in the bank.
+Give the alias name as Count_Customer.
+
+
+
+SELECT count(custid) as 'Count_Customer'
+FROM customer 
+WHERE custid not in (SELECT custid from account);
+
+
+
+
++----------------+
+| Count_Customer |
++----------------+
+|              4 |
++----------------+
+1 row in set (0.00 sec)
+
+
+
+
+
+-----------------------------------------------------------------
+Problem # 7:
+Write a query to display citywise, branchwise count of accounts. For the branch where we don’t have any records display 0.
+
+
+
+SELECT b.bcity, b.bname, count(a.acnumber)
+FROM branch b LEFT OUTER JOIN account a
+ON b.bid=a.bid
+GROUP BY b.bid;
+
+
++---------+-----------------------+-------------------+
+| bcity   | bname                 | count(a.acnumber) |
++---------+-----------------------+-------------------+
+| Delhi   | Asaf ali road         |                 3 |
+| Delhi   | New delhi main branch |                 2 |
+| Delhi   | Delhi cantt           |                 1 |
+| Delhi   | Jasola                |                 0 |
+| Mumbai  | Mahim                 |                 1 |
+| Mumbai  | Vile parle            |                 1 |
+| Mumbai  | Mandvi                |                 2 |
+| Kolkata | Jadavpur              |                 0 |
+| Chennai | Kodambakkam           |                 0 |
++---------+-----------------------+-------------------+
+9 rows in set (0.00 sec)
+
+
+
+-----------------------------------------------------------------
+Problem # 8:
+Write  a query to display the customer’s firstname who have more then 1 account.
+
+
+SELECT fname
+FROM customer
+WHERE custid IN (SELECT custid FROM account GROUP BY custid HAVING count(custid)>1);
+
+
++---------+
+| fname   |
++---------+
+| Ramesh  |
+| Avinash |
+| Rahul   |
+| Amit    |
++---------+
+4 rows in set (0.00 sec)
+
+
+
+-----------------------------------------------------------------
+Problem # 9:
+Write a query to display the customer’s firstname who have multiple accounts atleast in 2 banks.
+
+
+
+SELECT fname
+FROM customer
+WHERE custid in (SELECT custid FROM account GROUP BY custid HAVING count(bid)>=2);
+
+
++---------+
+| fname   |
++---------+
+| Ramesh  |
+| Avinash |
+| Rahul   |
+| Amit    |
++---------+
+4 rows in set (0.00 sec)
+
+-----------------------------------------------------------------
+Problem # 10:  
+Display the customer number, customer name, account number and number of transactions  being made by a customer. Give the alias name for number of transactions as Count_Trans
+
+
+SELECT c.custid, c.fname, t.acnumber, count(a.custid) as 'Count_Trans'
+FROM customer c, trandetails t, account a
+WHERE c.custid=a.custid AND a.acnumber=t.acnumber
+GROUP BY custid;
+
+
+
+
+
++--------+---------+----------+-------------+
+| custid | fname   | acnumber | Count_Trans |
++--------+---------+----------+-------------+
+| C00001 | Ramesh  | A00001   |           6 |
+| C00002 | Avinash | A00002   |           3 |
+| C00007 | Amit    | A00007   |           3 |
++--------+---------+----------+-------------+
+3 rows in set (0.00 sec)
+
+
+
+
+------------------------------
+-----------------------------------------------------------------
+Problem # 1:   
+Write a query to display the  account number who has done the highest transaction.
+
+For example the account A00023 has done 5 transactions i.e. suppose 3 withdrawal and 2 deposits. Whereas the account A00024 has done 3 transactions i.e. suppose 2 withdrawals and 1 deposit. So account number of A00023 should be displayed. 
+
+
+SELECT acnumber, transaction_amount, MAX(c) 
+FROM (SELECT acnumber, transaction_amount, count(acnumber) c FROM trandetails 
+GROUP BY acnumber)a;
+
+
++----------+--------------------+--------+
+| acnumber | transaction_amount | MAX(c) |
++----------+--------------------+--------+
+| A00001   |               2000 |      6 |
++----------+--------------------+--------+
+1 row in set (0.00 sec)
+
+
+-----------------------------------------------------------------
+Problem #2:
+Write a query to show the branch name,branch city where we have the maximum customers.
+
+For example the branch B00019 has 3 customers, B00020 has 7 and B00021 has 10. So branch id B00021 is having maximum customers. B00021 is suppose for Koramangla branch Bangalore.  So Koramangla branch should be displayed along with city name Bangalore.
+ 
+
+SELECT b.bname, b.bcity, MAX(c) 
+FROM (SELECT count(custid) c 
+FROM account 
+GROUP BY bid)x, branch  b, account a;
+
+
++---------------+-------+--------+
+| bname         | bcity | MAX(c) |
++---------------+-------+--------+
+| Asaf ali road | Delhi |      3 |
++---------------+-------+--------+
+1 row in set (0.00 sec)
+
+
+OR
+
+
+SELECT bname, bcity, MAX(c) 
+FROM (SELECT b.bname, b.bcity, count(custid) c 
+FROM branch  b, account a
+GROUP BY b.bid)x;
+
+
+
++---------------+-------+--------+
+| bname         | bcity | MAX(c) |
++---------------+-------+--------+
+| Asaf ali road | Delhi |      3 |
++---------------+-------+--------+
+1 row in set (0.00 sec)
+
+
+
+-----------------------------------------------------------------
+Problem#3:
+
+Write a query to show the balance amount  for account number A00001. 
+Note: Balance amount includes account opening balance also.
+
+For example A00015 is having an opening balance of 1000. A00015 has deposited 2000 on 2012-06-12 and deposited 3000 on 2012-07-13. The same account has drawn money of 500 on 2012-08-12 , 500 on 2012-09-15, 1000 on 2012-12-17. So balance amount is 4000 i.e (1000 (opening balance)+2000+3000 ) – (500+500+1000).
+
+
+SELECT transaction_type, sum(transaction_amount)
+FROm trandetails
+WHERE acnumber='A00001'
+GROUP BY transaction_type;
+
+
+
+
+SELECT sum(c1) FROM
+(SELECT transaction_type, sum(transaction_amount) c1
+FROm trandetails
+WHERE acnumber='A00001'
+GROUP BY transaction_type HAVING transaction_type='DEPOSIT')x1;
+
+
+
+SELECT sum(c1-c2) FROM
+(SELECT transaction_type, (if(transaction_type='DEPOSIT', sum(transaction_amount), 0)) c1, 
+(if(transaction_type='WITHDRAWAL', sum(transaction_amount), 0)) c2
+FROM trandetails
+WHERE acnumber='A00001'
+GROUP BY transaction_type)x1;
+
+
+
+SELECT ob+sum(c1-c2) AS 'BALANCE'
+FROM (SELECT t.transaction_type, (if(t.transaction_type='DEPOSIT', sum(t.transaction_amount), 0)) c1, 
+(if(t.transaction_type='WITHDRAWAL', sum(t.transaction_amount), 0)) c2, a.opening_balance ob
+	FROM trandetails t, account a
+	WHERE t.acnumber=a.acnumber AND a.acnumber='A00001'
+	GROUP BY t.transaction_type)x;
+
++---------+
+| BALANCE |
++---------+
+|   -2000 |
++---------+
+1 row in set (0.00 sec)
+
+
+-----------------------------------------------------------------
+Problem # 4:
+Write a query to display all those account number, deposit, withdrawal where withdrawal is more then deposit amount. 
+
+For example A00011 deposited 2000 rupees on 2012-12-01 and 3000 rupees on 2012-12-02. The same account i.e A00011 withdrawn 3000 rupees on 2013-01-01 and 7000 rupees on 2013-01-03. So the total deposited amount is 5000 and total withdrawal amount is 10000. So withdrawal amount is more then deposited for account number A00011.
+
+
+
+SELECT t.acnumber, dep, wid
+FROM trandetails t, 
+(SELECT acnumber, sum(transaction_amount) dep FROM trandetails WHERE transaction_type='deposit' group by acnumber)d,
+(SELECT acnumber, sum(transaction_amount) wid FROM trandetails WHERE transaction_type='withdrawal' group by acnumber)w
+WHERE t.acnumber=d.acnumber AND d.acnumber=w.acnumber
+GROUP BY acnumber;
+
++----------+-------+-------+
+| acnumber | dep   | wid   |
++----------+-------+-------+
+| A00001   |  9000 | 12000 |
+| A00002   |  5000 |  7000 |
+| A00007   | 16000 |  2000 |
++----------+-------+-------+
+3 rows in set (0.00 sec)
+
+
+SELECT t.acnumber, dep AS 'DEPOSIT', wid AS 'WITHDRAWAL'
+FROM trandetails t, 
+(SELECT acnumber, sum(transaction_amount) dep FROM trandetails WHERE transaction_type='deposit' group by acnumber)d,
+(SELECT acnumber, sum(transaction_amount) wid FROM trandetails WHERE transaction_type='withdrawal' group by acnumber)w
+WHERE t.acnumber=d.acnumber AND d.acnumber=w.acnumber AND w.wid>d.dep
+GROUP BY acnumber;
+
+
++----------+---------+------------+
+| acnumber | DEPOSIT | WITHDRAWAL |
++----------+---------+------------+
+| A00001   |    9000 |      12000 |
+| A00002   |    5000 |       7000 |
++----------+---------+------------+
+2 rows in set (0.00 sec)
+
+
+-----------------------------------------------------------------
+
+Problem # 5:   
+Write a query to display the customer number, firstname, lastname for those client where total loan amount taken is maximum and at least taken from 2 banks. 
+
+For example the customer 	C00012 took a loan of 100000 from bank branch with id B00009 and 
+				C00012 Took a loan of 500000 from bank branch with id B00010. 
+				So total loan amount for customer C00012 is 600000. 
+
+				C00013 took a loan of 100000 from bank branch B00009 and 200000 from bank branch B00011.
+				So total loan taken is 300000. 
+
+
+				So loan taken by C00012 is more then C00013.
+
+SELECT c.custid, c.fname, c.ltname
+FROM customer c
+WHERE custid = (SELECT custid 
+		FROM loan 
+		GROUP BY custid 
+		HAVING sum(loan_amount) = (SELECT max(c) 
+					FROM (SELECT sum(loan_amount) c 
+						FROM loan 
+						GROUP BY custid)temp
+					    )
+		);
+
+
+
++--------+---------+--------+
+| custid | fname   | ltname |
++--------+---------+--------+
+| C00002 | Avinash | Minha  |
++--------+---------+--------+
+1 row in set (0.00 sec)
+
+*/
